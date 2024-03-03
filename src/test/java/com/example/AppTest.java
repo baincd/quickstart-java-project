@@ -1,8 +1,11 @@
 package com.example;
 
-import static org.junit.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.Test;
+import org.assertj.core.api.Assertions.*;
+import org.hamcrest.Matchers.*;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito.*;
 
 /**
  * Unit test for simple App.
@@ -15,6 +18,6 @@ public class AppTest
     @Test
     public void shouldAnswerWithTrue()
     {
-        assertTrue( true );
+        assertThat(true).isTrue();
     }
 }
