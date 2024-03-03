@@ -1,4 +1,4 @@
-package com.example;
+package com.example.quickstartjavaproject;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -7,17 +7,9 @@ import org.hamcrest.Matchers.*;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito.*;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-{
-    /**
-     * Rigorous Test :-)
-     */
+public class QuickstartJavaProjectApplicationTest {
     @Test
-    public void shouldAnswerWithTrue()
-    {
+    public void shouldAnswerWithTrue() {
         assertThat(true).isTrue();
     }
 }
