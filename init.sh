@@ -51,6 +51,18 @@ rm README.md LICENSE init.sh
 sed -e '/github.com\/baincd/d' -i pom.xml
 git commit -a -m "Delete quickstart-java-project specific files and settings"
 
+# Update .gitignore
+if curl -L https://www.toptal.com/developers/gitignore/api/java,maven,intellij,eclipse,visualstudiocode > .gitignore.download; then
+    mv .gitignore.download .gitignore
+else
+    rm .gitignore.download
+fi
+if [[ -n "$(git status --porcelain)" ]]; then
+    git commit -a -m "Update .gitignore";
+else
+    echo ".gitignore is unchanged";
+fi
+
 # In `POM.xml` update groupId, artifactId, name, Java version
 sed -e "s/<groupId>com\.example/<groupId>$GROUP_ID/" -i pom.xml
 sed -e "s/<artifactId>quickstart-java-project/<artifactId>$ARTIFACT_ID/" -i pom.xml
