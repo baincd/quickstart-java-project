@@ -78,6 +78,7 @@ function updateJavaFiles () {
 }
 updateJavaFiles "src/main/java"
 updateJavaFiles "src/test/java" "Test"
+sed -E "s/<mainClass>.*<\/mainClass>/<mainClass>${PACKAGE_STRUCTURE}.${CLASS_NAME}<\/mainClass>/" -i pom.xml
 if [[ -n "$(git status --porcelain)" ]]; then
     git add -A . && git commit -m "Initialize $ARTIFACT_ID Java classes";
 else
