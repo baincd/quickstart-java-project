@@ -74,6 +74,13 @@ else
     echo "pom.xml is unchanged";
 fi
 
+mvn versions:use-latest-releases -DgenerateBackupPoms=false || true
+if [[ -n "$(git status --porcelain)" ]]; then
+    git commit -a -m "Update dependencies to latest versions";
+else
+    echo "Dependencies in pom.xml are unchanged";
+fi
+
 
 # Update the Java files class name and package hierarchy
 function updateJavaFiles () {
